@@ -18,3 +18,36 @@ let triple_step = function(num){
     }
     return result[3]
 }
+
+//memoized & recursive
+let triple_step_rec = function(num, result){
+    if(num < 0){
+        return 0
+    }
+
+    if(result[num] > 0){
+        return result[num];
+    }
+
+    result[num] = triple_step_rec(num-1, result) +
+                  triple_step_rec(num-2, result) +
+                  triple_step_rec(num-3, result);
+    return result[num];
+}
+
+let triple_step = function(num){
+    if(num <= 0){
+        return 0;
+    }
+    let result = [];
+    for(let i = 0; i < num+1; i++){
+        result[i] = 0;
+    }
+
+    result[0] = 1;
+
+    triple_step_rec(num, result);
+
+    return result[num]
+}
+
