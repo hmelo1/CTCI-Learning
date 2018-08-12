@@ -1,7 +1,15 @@
 //Power Set: Write a method to return all subsets of a set.
 
 let get_bit = function(num, bit){
+    //binary left shift
+    // 0101 << 1 = 1010
+    // 5 << 1 = 10
     let temp = (1 << bit);
+    //bitwise AND
+    //0101 (5) & 0001
+    //temp = 0001
+    //0101 & 0110
+    //temp = 0100
     temp = temp & num;
     if(temp === 0 ){
         return 0;
